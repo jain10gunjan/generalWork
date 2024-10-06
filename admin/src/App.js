@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from './components/Navbar'
-import UserData from './components/UserData'
-import Login from './components/Login';
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import UserData from "./components/UserData";
+import Login from "./components/Login";
 
 // export const backendUrl = import.meta.env.VITE_BACKEND_URL;
-export const backendUrl = "http://localhost:4001"
+export const backendUrl = "https://general-work.vercel.app";
 
 const App = () => {
   const [token, setToken] = useState(
@@ -16,19 +16,16 @@ const App = () => {
   }, [token]);
   return (
     <div>
-      {
-        token === "" ? (
-          <Login setToken={setToken}/>
-        ) : (
-          <div>
-            <Navbar setToken={setToken} />
-            <UserData />
-          </div>
-        )
-      }
-     
+      {token === "" ? (
+        <Login setToken={setToken} />
+      ) : (
+        <div>
+          <Navbar setToken={setToken} />
+          <UserData />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
