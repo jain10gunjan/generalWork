@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import usersModel from "../models/usersModel.js";
-const ADMIN_EMAIL = 'admin21@gmail.com';
-const ADMIN_PASSWORD = 'admin12345@'
+const ADMIN_EMAIL = "admin21@gmail.com";
+const ADMIN_PASSWORD = "admin12345@";
 
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
@@ -9,7 +9,7 @@ const createToken = (id) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { 
+    const {
       name,
       number,
       father,
@@ -31,7 +31,6 @@ const registerUser = async (req, res) => {
       pincode,
       sagetan,
       marrid,
-      randomCode
     } = req.body;
 
     if (!req.file || !req.file.filename) {
@@ -64,7 +63,7 @@ const registerUser = async (req, res) => {
       sagetan,
       marrid,
       photo: image_filename,
-      randomCode: randomNumber, 
+      randomCode: randomNumber,
     });
 
     const user = await newUser.save();
@@ -85,7 +84,10 @@ const getRegisterUser = async (req, res) => {
   try {
     // Check if req.user is available (set by the auth middleware)
     if (!req.user || !req.user.id) {
-      return res.json({ success: false, message: "Unauthorized, no user found" });
+      return res.json({
+        success: false,
+        message: "Unauthorized, no user found",
+      });
     }
 
     // Find the user by ID
@@ -102,7 +104,6 @@ const getRegisterUser = async (req, res) => {
     res.json({ success: false, message: "Error fetching user data" });
   }
 };
-
 
 const getAllUsers = async (req, res) => {
   try {
@@ -126,10 +127,7 @@ const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (
-      email === ADMIN_EMAIL &&
-      password === ADMIN_PASSWORD
-    ) {
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({ success: true, message: "Admin Login Successfully", token });
     } else {
@@ -141,6 +139,4 @@ const adminLogin = async (req, res) => {
   }
 };
 
-
-
-export { registerUser,getRegisterUser,getAllUsers,adminLogin };
+export { registerUser, getRegisterUser, getAllUsers, adminLogin };

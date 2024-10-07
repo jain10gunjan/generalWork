@@ -68,7 +68,7 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        "https://general-work.vercel.app/api/users/register",
+        " http://localhost:4001/api/users/register",
         formDataToSend,
         {
           headers: { "Content-Type": "multipart/form-data" },
