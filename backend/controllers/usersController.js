@@ -31,7 +31,6 @@ const registerUser = async (req, res) => {
       pincode,
       sagetan,
       marrid,
-      randomCode
     } = req.body;
 
     if (!req.file || !req.file.filename) {
