@@ -1,7 +1,7 @@
 // src/services/userService.js
-import axios from 'axios';
+import axios from "axio";
 
-const API_URL = 'http://localhost:4001/api/users/getAllUsers'; // Adjust to your API base URL
+const API_URL = "https://general-work.vercel.app/api/users/getAllUsers"; // Adjust to your API base URL
 
 export const fetchAllUsers = async () => {
   try {

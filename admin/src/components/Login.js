@@ -1,23 +1,24 @@
 import React from "react";
-import axios from 'axios'
+import axios from "axios";
 import { backendUrl } from "../App";
 
-
-const Login = ({setToken}) => {
+const Login = ({ setToken }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
       // console.log(email, password);
-      const res = await axios.post(backendUrl + '/api/users/admin',{email,password} )
+      const res = await axios.post(
+        "https://general-work.vercel.app/api/users/admin",
+        { email, password }
+      );
       // console.log(res);
       if (res.data.success) {
-        setToken(res.data.token)
+        setToken(res.data.token);
       } else {
         // toast.error(res.data.message);
       }
-      
     } catch (error) {
       console.log(error);
       // toast.error(error.message);
