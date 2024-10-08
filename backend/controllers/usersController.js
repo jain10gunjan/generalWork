@@ -62,7 +62,7 @@ const registerUser = async (req, res) => {
       pincode,
       sagetan,
       marrid,
-      photo: null,
+      photo: image_filename || null,
       randomCode: randomNumber,
     });
 
@@ -74,8 +74,8 @@ const registerUser = async (req, res) => {
     console.log(error);
     res.json({
       success: false,
-      message: error.message,
-      err: error.message,
+      message: "Error, user not registered",
+      err: error,
     });
   }
 };
