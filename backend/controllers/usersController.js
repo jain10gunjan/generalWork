@@ -33,9 +33,9 @@ const registerUser = async (req, res) => {
       marrid,
     } = req.body;
 
-    if (!req.file || !req.file.filename) {
-      return res.json({ success: false, message: "Photo is required" });
-    }
+    // if (!req.file || !req.file.filename) {
+    //   return res.json({ success: false, message: "Photo is required" });
+    // }
     const image_filename = req.file.filename;
 
     const randomNumber = Math.floor(100000000 + Math.random() * 900000000);
