@@ -75,7 +75,7 @@ const registerUser = async (req, res) => {
     res.json({
       success: false,
       message: "Error, user not registered",
-      err: error,
+      err: error.message,
     });
   }
 };
